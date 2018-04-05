@@ -8,6 +8,32 @@
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  var lowerA = stringA.toLowerCase().split('');
+  var lowerB = stringB.toLowerCase().split('');
+  var countsA = {};
+  var countsB = {}
+
+
+  for (let char of lowerA) {
+    if (countsA.hasOwnProperty(char)) {
+      countsA[char] += 1;
+    } else {
+      countsA[char] = 1;
+      debugger;
+    }
+  }
+
+  for (let char of lowerB) {
+    if (countsB.hasOwnProperty(char)) {
+      countsB[char] += 1;
+    } else {
+      countsB[char] = 1;
+    }
+  }
+
+  console.log(stringA, stringB, countsA, countsB)
+  return countsA == countsB;
+}
 
 module.exports = anagrams;
